@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpPower = 5f;
     [SerializeField] Transform foot;
     [SerializeField] Animator animator;
+    [SerializeField] AudioClip jumpSe;
 
     PlayerInput input; // アタッチしたPlayer Inputコンポーネントを格納する変数
     InputAction moveInput; // 作成したGameActionsのMoveに関するActionsを格納する変数
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
 
     Camera cam;
-
+    AudioSource audioSource;
 
 
     // Start is called before the first frame update
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
         distanceToGround = transform.position.y - foot.position.y + 0.1f;
 
         cam = Camera.main;
+
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -114,6 +117,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("Jump");
         rb.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
+        audioSource.PlayOneShot(jumpSe);
     }
 
     // 右手を上げる
