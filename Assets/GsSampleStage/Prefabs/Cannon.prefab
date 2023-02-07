@@ -596,6 +596,8 @@ MonoBehaviour:
   rotationSpeed: 1
   angleRange: 60
   shotSe: {fileID: 8300000, guid: 7bef0064f8567430cac22499c6b93d4f, type: 3}
+  cannonFx: {fileID: 779139814303207737}
+  shotFx: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
 --- !u!82 &5761888058283741428
 AudioSource:
   m_ObjectHideFlags: 0

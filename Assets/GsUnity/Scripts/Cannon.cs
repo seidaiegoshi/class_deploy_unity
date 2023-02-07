@@ -10,6 +10,10 @@ public class Cannon : MonoBehaviour
     [SerializeField] float angleRange = 60f;
     [SerializeField] AudioClip shotSe;
 
+    [SerializeField] Transform cannonFx; // CannonFxのTransformを格納する変数
+    [SerializeField] GameObject shotFx; // パーティクルエフェクトを格納する変数
+
+
     float angleValue;
     Transform body;
 
@@ -41,6 +45,8 @@ public class Cannon : MonoBehaviour
         var cannonBallRb = cannonBall.GetComponent<Rigidbody>();
         cannonBallRb.AddForce(muzzle.forward * power, ForceMode.VelocityChange);
         audioSource.PlayOneShot(shotSe);
+        Instantiate(shotFx, cannonFx);
+
     }
 
 
